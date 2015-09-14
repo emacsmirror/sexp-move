@@ -3,7 +3,7 @@
 ;; Copyright © 2015 Philip Woods
 
 ;; Author: Philip Woods <elzairthesorcerer@gmail.com>
-;; Version: 0.1.0
+;; Version: 0.2.0
 ;; Keywords: sexp
 ;; URL: https://gitlab.com/elzair/sexp-move
 
@@ -68,8 +68,7 @@
                       '(LC Ll Lm Lo Lt Lu Mc Me Mn Nd Nl
                            No Pc Pd Pe Po Sc Sk Sm So))
               (not (member (string (char-after))
-                           (mapcar #'intern
-                                   '("'" "\"" "`" ",")))))
+                           '("'" "\"" "`" ","))))
     (if (> dir 0)
         (forward-char)
       (backward-char))))

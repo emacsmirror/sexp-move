@@ -87,3 +87,12 @@ echo "(load \"~/Development/.emacs.d/scripts/sexp-move.el\")" >> ~/.emacs.d/init
 #+begin_src elisp
 (puthash (intern "|{")  #'sexp-move-single  *sexp-move-read-table*)
 #+end_src
+
+** Configure
+   
+   Use the following code to replace the functions =forward-sexp= and =backward-sexp= with =sexp-mode-forward= and =sexp-move-backward=.
+
+#+begin_src elisp
+(global-set-key (kbd "C-M-f") 'sexp-move-forward)  ; Ctrl+Alt+f
+(global-set-key (kbd "C-M-b") 'sexp-move-backward) ; Ctrl+Alt+b
+#+end_src
