@@ -3,7 +3,7 @@
 ;; Copyright © 2015 Philip Woods
 
 ;; Author: Philip Woods <elzairthesorcerer@gmail.com>
-;; Version: 0.2.1
+;; Version: 0.2.2
 ;; Keywords: sexp
 ;; URL: https://gitlab.com/elzair/sexp-move
 
@@ -65,8 +65,8 @@
                                                   (char-after)
                                                 (char-before))
                                               'general-category)
-                      '(LC Ll Lm Lo Lt Lu Mc Me Mn Nd Nl
-                           No Pc Pd Pe Po Sc Sk Sm So))
+                      '(LC Ll Lm Lo Lt Lu Mc Me Mn Nd
+                           Nl No Pc Pd Po Sc Sk Sm So))
               (not (member (string (char-after))
                            '("'" "\"" "`" ","))))
     (if (> dir 0)
@@ -105,7 +105,6 @@
 (puthash 'No           #'sexp-move-symbol     *sexp-move-read-table*)
 (puthash 'Pc           #'sexp-move-symbol     *sexp-move-read-table*)
 (puthash 'Pd           #'sexp-move-symbol     *sexp-move-read-table*)
-(puthash 'Pe           #'sexp-move-symbol     *sexp-move-read-table*)
 (puthash 'Po           #'sexp-move-symbol     *sexp-move-read-table*)
 (puthash 'Sc           #'sexp-move-symbol     *sexp-move-read-table*)
 (puthash 'Sk           #'sexp-move-symbol     *sexp-move-read-table*)
