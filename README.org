@@ -41,7 +41,7 @@ echo "(load \"~/Development/.emacs.d/scripts/sexp-move.el\")" >> ~/.emacs.d/init
 
 *** sexp-move-forward
 
-    This function moves the cursor (i.e. /point/) forward one syntactic unit (usually referred to as a [[https://en.wikipedia.org/wiki/Lexeme][lexeme]]).
+    This function moves the cursor (i.e. /point/) forward one /lexeme/.
 
 **** Example
 
@@ -107,7 +107,7 @@ echo "(load \"~/Development/.emacs.d/scripts/sexp-move.el\")" >> ~/.emacs.d/init
 
 *** sexp-move-backward
     
-    This function moves the cursor backward one syntactic unit.
+    This function moves the cursor backward one /lexeme/.
 
 **** Example
 
