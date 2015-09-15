@@ -2,6 +2,23 @@
 
   *sexp-move* is a package for [[https://www.gnu.org/software/emacs/][GNU Emacs]] that adds two interactive functions that make it easy to move forward and back through most [[https://en.wikipedia.org/wiki/Lisp_%28programming_language%29][lisp]] programming languages.
 
+** Raison d'être
+
+   I wrote *sexp-move* to make it easier to tab-through my code. I use [[http://emacswiki.org/emacs/ParEdit][ParEdit]] to automatically add matching parentheses, brackets, and quotation marks to my code, and I want to press /TAB/ to get out of them. However, I found inadequate the [[http://pub.gajendra.net/src/paredit-refcard.pdf][default movement commands of ParEdit]]. The command =paredit-forward= skips over the nested S-Expression /(bar baz)/. 
+
+    *Example:*
+
+    (*NOTE:* the vertical bar (|) represents the current position of the cursor [i.e. /point/, in Emacs terminology]).
+
+    #+begin_src elisp
+    (foo| (bar baz) quux)
+    (foo (bar baz)| quux)
+    #+end_src
+   
+    ParEdit has two "undocumented" commands, =paredit-forward-down= and =paredit-forward-up= that move into and out of nested expression, but it does not have any command to [[https://en.wikipedia.org/wiki/DWIM][do what I mean]] when traversing the code. This critique also applies to =paredit-backward=
+
+To fill this need, I wrote *sexp-move*.
+
 ** Install
 
 *** MELPA
@@ -24,7 +41,7 @@ echo "(load \"~/Development/.emacs.d/scripts/sexp-move.el\")" >> ~/.emacs.d/init
 
 *** sexp-move-forward
 
-    This function moves the cursor forward one syntactic unit (usually referred to as a [[https://en.wikipedia.org/wiki/Lexeme][lexeme]]).
+    This function moves the cursor (i.e. /point/) forward one syntactic unit (usually referred to as a [[https://en.wikipedia.org/wiki/Lexeme][lexeme]]).
 
 **** Example
 
@@ -86,6 +103,28 @@ echo "(load \"~/Development/.emacs.d/scripts/sexp-move.el\")" >> ~/.emacs.d/init
 
 #+begin_src elisp
 (puthash (intern "|{")  #'sexp-move-single  *sexp-move-read-table*)
+#+end_src
+
+*** sexp-move-backward
+    
+    This function moves the cursor backward one syntactic unit.
+
+**** Example
+
+#+begin_src elisp
+(puthash| (intern "{")  #'sexp-move-single  *sexp-move-read-table*)
+#+end_src
+
+=M-x sexp-move-backward RET=
+
+#+begin_src elisp
+(|puthash (intern "{")  #'sexp-move-single  *sexp-move-read-table*)
+#+end_src
+
+=M-x sexp-move-backward RET=
+
+#+begin_src elisp
+|(puthash (intern "{")  #'sexp-move-single  *sexp-move-read-table*)
 #+end_src
 
 ** Configure

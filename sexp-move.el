@@ -3,7 +3,7 @@
 ;; Copyright © 2015 Philip Woods
 
 ;; Author: Philip Woods <elzairthesorcerer@gmail.com>
-;; Version: 0.2.2
+;; Version: 0.2.3
 ;; Keywords: sexp
 ;; URL: https://gitlab.com/elzair/sexp-move
 
