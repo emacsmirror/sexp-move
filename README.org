@@ -15,7 +15,7 @@
     (foo (bar baz)| quux)
     #+end_src
    
-    ParEdit has two "undocumented" commands, =paredit-forward-down= and =paredit-forward-up= that move into and out of nested expression, but it does not have any command to [[https://en.wikipedia.org/wiki/DWIM][do what I mean]] when traversing the code. This critique also applies to =paredit-backward=
+    ParEdit has two "undocumented" commands, =paredit-forward-down= and =paredit-forward-up= that move into and out of nested expressions, but it does not have any command to [[https://en.wikipedia.org/wiki/DWIM][do what I mean]] when traversing the code. This critique also applies to =paredit-backward=
 
 To fill this need, I wrote *sexp-move*.
 
